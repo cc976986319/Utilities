@@ -1,7 +1,0 @@
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Debug\Utilities.WeChat.Subscription.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Debug\Utilities.WeChat.Subscription.pdb
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Debug\Newtonsoft.Json.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Debug\Newtonsoft.Json.xml
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\obj\Debug\Utilities.WeChat.Subscription.csprojResolveAssemblyReference.cache
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\obj\Debug\Utilities.WeChat.Subscription.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\obj\Debug\Utilities.WeChat.Subscription.pdb

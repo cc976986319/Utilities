@@ -1,6 +1,0 @@
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\bin\Debug\Utilities.Attributes.xml
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\bin\Debug\Utilities.Attributes.dll
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\bin\Debug\Utilities.Attributes.pdb
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\obj\Debug\Utilities.Attributes.csprojResolveAssemblyReference.cache
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\obj\Debug\Utilities.Attributes.dll
-E:\开源项目\Utilities\Utilities\Utilities.Attributes\obj\Debug\Utilities.Attributes.pdb

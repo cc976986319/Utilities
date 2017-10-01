@@ -1,6 +1,0 @@
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Release\Utilities.WeChat.Subscription.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Release\Utilities.WeChat.Subscription.pdb
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Release\Newtonsoft.Json.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\bin\Release\Newtonsoft.Json.xml
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\obj\Release\Utilities.WeChat.Subscription.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChat.Subscription\obj\Release\Utilities.WeChat.Subscription.pdb

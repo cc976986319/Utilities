@@ -1,6 +1,0 @@
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Debug\Utilities.WeChatEnterprise.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Debug\Utilities.WeChatEnterprise.pdb
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Debug\Newtonsoft.Json.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Debug\Newtonsoft.Json.xml
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\obj\Debug\Utilities.WeChatEnterprise.dll
-E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\obj\Debug\Utilities.WeChatEnterprise.pdb
