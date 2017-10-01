@@ -1,0 +1,7 @@
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Release\Utilities.WeChatEnterprise.dll
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Release\Utilities.WeChatEnterprise.pdb
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Release\Newtonsoft.Json.dll
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\bin\Release\Newtonsoft.Json.xml
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\obj\Release\Utilities.WeChatEnterprise.csprojResolveAssemblyReference.cache
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\obj\Release\Utilities.WeChatEnterprise.dll
+E:\开源项目\Utilities\Utilities\Utilities.WeChatEnterprise\obj\Release\Utilities.WeChatEnterprise.pdb
