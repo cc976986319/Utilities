@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\MarkAttribute.cs" />
+    <Compile Include="Attributes\CollectionAttribute.cs" />
     <Compile Include="Extensions\Microsoft\StringExtension.cs" />
     <Compile Include="Extensions\Mongo\FieldExtension.cs" />
     <Compile Include="Models\EntityModel.cs" />

@@ -31,7 +31,7 @@ namespace Utilities.Mongo.Models
         /// <returns></returns>
         public static string GetCollectionName<TEntity>() where TEntity : EntityModel
         {
-            Attributes.MarkAttribute collection = typeof(TEntity).GetCustomAttribute<Attributes.MarkAttribute>();
+            Attributes.CollectionAttribute collection = typeof(TEntity).GetCustomAttribute<Attributes.CollectionAttribute>();
             if (collection == null)
                 return typeof(TEntity).Name;
 
