@@ -17,7 +17,7 @@ function DelayOperate(method, delayTime) {
 // 用例
 //<input type="text" oninput="" />
 
-//DelayQuery(function () {
+//DelayOperate(function () {
 //    if (self.IsDepartment()) {
 //        var requestUrl = '/Api/Department/Query?value=' + value;
 //        $.post(requestUrl, null, function (ret) {

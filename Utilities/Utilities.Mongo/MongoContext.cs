@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -212,7 +213,6 @@ namespace Utilities.Mongo
         /// <summary>
         /// 删除指定条件的数据
         /// </summary>
-        /// <param name="collectionName">数据集名称</param>
         /// <param name="filter">删除条件</param>
         /// <returns></returns>
         public long DeleteRange<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
@@ -274,7 +274,6 @@ namespace Utilities.Mongo
         /// <summary>
         /// 查询(异步)
         /// </summary>
-        /// <param name="collectionName">数据集名称</param>
         /// <param name="filter">查询条件</param>
         /// <returns></returns>
         public async Task<IEnumerable<TEntity>> FindAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
@@ -286,7 +285,6 @@ namespace Utilities.Mongo
         /// <summary>
         /// 查询(lambda)
         /// </summary>
-        /// <typeparam name="TEntity">数据集类型:必须继承于<see cref="MongoEntity"/></typeparam>
         /// <returns></returns>
         public IQueryable<TEntity> AsQueryable<TEntity>() where TEntity : EntityModel
         {
@@ -297,6 +295,16 @@ namespace Utilities.Mongo
     // 其它
     public partial class MongoContext
     {
+        /// <summary>
+        /// 获取数据集
+        /// </summary>
+        /// <param name="collectionName">数据集名称</param>
+        /// <returns></returns>
+        public IMongoCollection<BsonDocument> GetCollection(string collectionName)
+        {
+            return this.MongoDatabase.GetCollection<BsonDocument>(collectionName);
+        }
+
         /// <summary>
         /// 获取数据集
         /// </summary>

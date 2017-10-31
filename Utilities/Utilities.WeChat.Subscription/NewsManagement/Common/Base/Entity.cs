@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Utilities.WeChat.Subscription.Microsoft;
+using Utilities.WeChat.Subscription.Extensions;
 
 namespace Utilities.WeChat.Subscription.NewsManagement.Common.Base
 {
@@ -37,7 +36,7 @@ namespace Utilities.WeChat.Subscription.NewsManagement.Common.Base
         /// <returns></returns>
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            return this.ToJson();
         }
     }
 }

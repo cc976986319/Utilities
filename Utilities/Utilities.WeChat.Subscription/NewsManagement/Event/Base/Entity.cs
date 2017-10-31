@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Utilities.WeChat.Subscription.Microsoft;
+using Utilities.WeChat.Subscription.Extensions;
 
 namespace Utilities.WeChat.Subscription.NewsManagement.Event.Base
 {
