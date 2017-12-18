@@ -1,0 +1,5 @@
+E:\开源项目\Utilities\Utilities\Utilities.IO.File\bin\Debug\Utilities.IO.File.dll
+E:\开源项目\Utilities\Utilities\Utilities.IO.File\bin\Debug\Utilities.IO.File.pdb
+E:\开源项目\Utilities\Utilities\Utilities.IO.File\obj\Debug\Utilities.IO.File.csprojResolveAssemblyReference.cache
+E:\开源项目\Utilities\Utilities\Utilities.IO.File\obj\Debug\Utilities.IO.File.dll
+E:\开源项目\Utilities\Utilities\Utilities.IO.File\obj\Debug\Utilities.IO.File.pdb

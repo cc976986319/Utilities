@@ -1,0 +1,5 @@
+E:\开源项目\Utilities\Utilities\Utilities.Extension\bin\Debug\Utilities.Extension.dll
+E:\开源项目\Utilities\Utilities\Utilities.Extension\bin\Debug\Utilities.Extension.pdb
+E:\开源项目\Utilities\Utilities\Utilities.Extension\obj\Debug\Utilities.Extension.csprojResolveAssemblyReference.cache
+E:\开源项目\Utilities\Utilities\Utilities.Extension\obj\Debug\Utilities.Extension.dll
+E:\开源项目\Utilities\Utilities\Utilities.Extension\obj\Debug\Utilities.Extension.pdb

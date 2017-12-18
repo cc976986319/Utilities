@@ -29,13 +29,7 @@ namespace Utilities.WeChat.Enterprise
             WebClient client = new WebClient();
             byte[] responseResult = client.DownloadData($"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}");
 
-#if DEBUG
-            var data = responseResult.ConvertTo<AccessToken>();
-            return data;
-#endif
-#if !DEBUG
             return responseResult.ConvertTo<AccessToken>();
-#endif
         }
 
         /// <summary>

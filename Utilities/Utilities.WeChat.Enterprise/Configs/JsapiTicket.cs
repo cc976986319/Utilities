@@ -42,13 +42,7 @@ namespace Utilities.WeChat.Enterprise.Configs
         {
             WebClient client = new WebClient();
             byte[] responseResult = client.DownloadData(url);
-#if DEBUG
-            var data = responseResult.ConvertTo<JsapiTicket>();
-            return data;
-#endif
-#if !DEBUG
             return responseResult.ConvertTo<JsapiTicket>();
-#endif
         }
     }
 }

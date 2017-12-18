@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\AccessToken.cs" />
     <Compile Include="Configs\Base\Config.cs" />
     <Compile Include="Configs\JsapiTicket.cs" />
     <Compile Include="Configs\Js_SDKConfig.cs" />

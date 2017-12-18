@@ -185,14 +185,10 @@ namespace Utilities.WeChat.Enterprise.ConversationService
             using (WebClient webclient = new WebClient())
             {
                 webclient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-#if DEBUG
+
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/send?access_token={this.AccessToken.access_token}", "POST", this.ToBytes());
                 string result = responseResult.ParseString();
                 return result.ConvertTo<BaseResponseResult>();
-#endif
-#if !DEBUG
-                return webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/send?access_token={this.AccessToken.access_token}", "POST", this.ToBytes()).ConvertTo<BaseResponseResult>();
-#endif
             }
         }
 

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="delayedOperate.js" />
+    <Content Include="NumberConvertChinese.js" />
     <Content Include="Url.1.0.0.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

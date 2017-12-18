@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace Utilities.WeChat.Enterprise.Microsoft
 {
@@ -30,7 +30,7 @@ namespace Utilities.WeChat.Enterprise.Microsoft
         /// <returns></returns>
         public static T ConvertTo<T>(this byte[] bytes) where T : class
         {
-            return JsonConvert.DeserializeObject<T>(bytes.ParseString());
+            return new JavaScriptSerializer().Deserialize<T>(bytes.ParseString());
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Utilities.WeChat.Enterprise.Microsoft
         /// <returns></returns>
         public static T ConvertTo<T>(this string value) where T : class
         {
-            return JsonConvert.DeserializeObject<T>(value);
+            return new JavaScriptSerializer().Deserialize<T>(value);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Utilities.WeChat.Enterprise.Microsoft
         /// <returns></returns>
         public static byte[] ToBytes(this object value)
         {
-            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(value));
+            return Encoding.UTF8.GetBytes(new JavaScriptSerializer().Serialize(value));
         }
     }
 }

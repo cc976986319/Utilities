@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace Utilities.Tencent.Map.WebServiceApi
 {
@@ -129,7 +129,7 @@ namespace Utilities.Tencent.Map.WebServiceApi
             public static RequestResult Parse(string jsonStr)
             {
 #if DEBUG
-                RequestResult result = JsonConvert.DeserializeObject<RequestResult>(jsonStr);
+                RequestResult result = new JavaScriptSerializer().Deserialize<RequestResult>(jsonStr);
                 return result;
 #endif
 #if !DEBUG
@@ -181,7 +181,7 @@ namespace Utilities.Tencent.Map.WebServiceApi
             webClient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
             byte[] responseResult = webClient.DownloadData($"{url}{parameter.ToString()}");
             string result = Encoding.UTF8.GetString(responseResult);
-            return JsonConvert.DeserializeObject<RequestResult>(result);
+            return new JavaScriptSerializer().Deserialize<RequestResult>(result);
         }
     }
 }

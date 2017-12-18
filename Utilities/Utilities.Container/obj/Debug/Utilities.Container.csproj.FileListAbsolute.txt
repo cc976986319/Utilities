@@ -1,0 +1,6 @@
+E:\开源项目\Utilities\Utilities\Utilities.Container\bin\Debug\Utilities.Container.xml
+E:\开源项目\Utilities\Utilities\Utilities.Container\bin\Debug\Utilities.Container.dll
+E:\开源项目\Utilities\Utilities\Utilities.Container\bin\Debug\Utilities.Container.pdb
+E:\开源项目\Utilities\Utilities\Utilities.Container\obj\Debug\Utilities.Container.csprojResolveAssemblyReference.cache
+E:\开源项目\Utilities\Utilities\Utilities.Container\obj\Debug\Utilities.Container.dll
+E:\开源项目\Utilities\Utilities\Utilities.Container\obj\Debug\Utilities.Container.pdb

@@ -1,0 +1,5 @@
+E:\开源项目\Utilities\Utilities\Utilities.JsLibrary\bin\Debug\Utilities.JsLibrary.dll
+E:\开源项目\Utilities\Utilities\Utilities.JsLibrary\bin\Debug\Utilities.JsLibrary.pdb
+E:\开源项目\Utilities\Utilities\Utilities.JsLibrary\obj\Debug\Utilities.JsLibrary.csprojResolveAssemblyReference.cache
+E:\开源项目\Utilities\Utilities\Utilities.JsLibrary\obj\Debug\Utilities.JsLibrary.dll
+E:\开源项目\Utilities\Utilities\Utilities.JsLibrary\obj\Debug\Utilities.JsLibrary.pdb

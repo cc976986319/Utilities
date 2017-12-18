@@ -67,15 +67,10 @@ namespace Utilities.WeChat.Enterprise.ConversationService.Models
             using (WebClient webclient = new WebClient())
             {
                 webclient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-#if DEBUG
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={conversation.AccessToken.access_token}", "Post", conversation.ToBytes());
                 string result = responseResult.ParseString();
                 var data = result.ConvertTo<BaseResponseResult>();
                 return data;
-#endif
-#if !DEBUG
-                return webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={conversation.AccessToken.access_token}", "Post", conversation.ToBytes()).ConvertTo<BaseResponseResult>();
-#endif
             }
         }
 
@@ -97,15 +92,10 @@ namespace Utilities.WeChat.Enterprise.ConversationService.Models
             using (WebClient webclient = new WebClient())
             {
                 webclient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-#if DEBUG
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={this.AccessToken.access_token}", "Post", this.ToBytes());
                 string result = responseResult.ParseString();
                 var data = result.ConvertTo<BaseResponseResult>();
                 return data;
-#endif
-#if !DEBUG
-                return webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={this.AccessToken.access_token}", "Post", this.ToBytes()).ConvertTo<BaseResponseResult>();
-#endif
             }
         }
     }

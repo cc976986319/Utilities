@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Container</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Container.Simple.DerivedClassScanContainer`1">
+            <summary>
+            派生类扫描容器
+            </summary>
+            <typeparam name="T">指定类型，即原型(基类)</typeparam>
+        </member>
+        <member name="M:Utilities.Container.Simple.DerivedClassScanContainer`1.#ctor">
+            <summary>
+            实例化
+            </summary>
+        </member>
+        <member name="P:Utilities.Container.Simple.DerivedClassScanContainer`1.Container">
+            <summary>
+            容器
+            </summary>
+        </member>
+        <member name="P:Utilities.Container.Simple.DerivedClassScanContainer`1._lock">
+            <summary>
+            锁
+            </summary>
+        </member>
+        <member name="M:Utilities.Container.Simple.DerivedClassScanContainer`1.Single">
+            <summary>
+            单例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Utilities.Container.Simple.DerivedClassScanContainer`1.Types">
+            <summary>
+            容器
+            </summary>
+        </member>
+        <member name="P:Utilities.Container.Simple.DerivedClassScanContainer`1._Types">
+            <summary>
+            实际容器
+            </summary>
+        </member>
+        <member name="M:Utilities.Container.Simple.DerivedClassScanContainer`1.Register">
+            <summary>
+            注册
+            </summary>
+        </member>
+        <member name="M:Utilities.Container.Simple.DerivedClassScanContainer`1.CreateInstance(System.String)">
+            <summary>
+            实例化
+            </summary>
+            <param name="className"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Container.Simple.DerivedClassScanContainer`1.IsDerivedClass(System.Type,System.Type)">
+            <summary>
+            是指定的派生类
+            </summary>
+            <param name="type">待判断类型</param>
+            <param name="baseType">基类型</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
