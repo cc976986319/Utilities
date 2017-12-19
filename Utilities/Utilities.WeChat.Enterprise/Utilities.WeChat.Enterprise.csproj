@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessToken.cs" />
-    <Compile Include="BaseResponseResult.cs" />
     <Compile Include="Configs\Base\Config.cs" />
     <Compile Include="Configs\CardConfig.cs" />
     <Compile Include="Configs\ContactConfig.cs" />
@@ -52,12 +51,23 @@
     <Compile Include="Contacts\Tags.cs" />
     <Compile Include="ConversationService\MessageSending.cs" />
     <Compile Include="ConversationService\Models\Conversation.cs" />
+    <Compile Include="DialogueService\Dialogue.cs" />
+    <Compile Include="DialogueService\Models\Message\Message.cs" />
+    <Compile Include="DialogueService\Models\Message\Types\Content.cs" />
+    <Compile Include="DialogueService\Models\Operate\ClearNotify.cs" />
+    <Compile Include="DialogueService\Models\Operate\Create.cs" />
+    <Compile Include="DialogueService\Models\GetDialogue.cs" />
+    <Compile Include="DialogueService\Models\Operate\Quit.cs" />
+    <Compile Include="DialogueService\Models\SendingResult.cs" />
+    <Compile Include="DialogueService\Models\Operate\SetMute.cs" />
+    <Compile Include="DialogueService\Models\Operate\Update.cs" />
     <Compile Include="ENUM\IsRecursion.cs" />
     <Compile Include="ENUM\Sex.cs" />
     <Compile Include="ENUM\UserStatus.cs" />
     <Compile Include="JsSDK\Soter.cs" />
     <Compile Include="Microsoft\BaseTypeConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

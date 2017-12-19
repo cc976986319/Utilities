@@ -11,7 +11,7 @@ namespace Utilities.WeChat.Enterprise.Configs
     /// <summary>
     /// 微信JS接口的临时票据返回结果
     /// </summary>
-    public class JsapiTicket : BaseResponseResult
+    public class JsapiTicket : ResponseResult
     {
         /// <summary>
         /// 实例化

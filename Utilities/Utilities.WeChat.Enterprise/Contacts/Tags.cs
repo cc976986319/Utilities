@@ -18,7 +18,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 创建标签
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult CreateTags(string accessToken, RequestBody_Tags body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/create")
+        public ResponseResult CreateTags(string accessToken, RequestBody_Tags body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/create")
         {
             using (WebClient client = new WebClient())
             {
@@ -32,13 +32,13 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 修改标签名字
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult UpdateTagsName(string accessToken, RequestBody_Tags body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/update")
+        public ResponseResult UpdateTagsName(string accessToken, RequestBody_Tags body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/update")
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] bytes = client.UploadData($"{requestUrl}?access_token={accessToken}", "POST", body.ToBytes());
-                return bytes.ConvertTo<BaseResponseResult>();
+                return bytes.ConvertTo<ResponseResult>();
             }
         }
 
@@ -46,13 +46,13 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 删除标签
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult DeleteTags(string accessToken, int tagid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/delete")
+        public ResponseResult DeleteTags(string accessToken, int tagid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/delete")
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] bytes = client.DownloadData($"{requestUrl}?access_token={accessToken}&tagid={tagid}");
-                return bytes.ConvertTo<BaseResponseResult>();
+                return bytes.ConvertTo<ResponseResult>();
             }
         }
 
@@ -60,7 +60,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 获取标签成员
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult FindTagsMember(string accessToken, int tagid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/get")
+        public ResponseResult FindTagsMember(string accessToken, int tagid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/get")
         {
             using (WebClient client = new WebClient())
             {
@@ -74,13 +74,13 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 增加标签成员
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult CreateTagsMember(string accessToken, RequestBody_Member body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers")
+        public ResponseResult CreateTagsMember(string accessToken, RequestBody_Member body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers")
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] bytes = client.UploadData($"{requestUrl}?access_token={accessToken}", "POST", body.ToBytes());
-                return bytes.ConvertTo<BaseResponseResult>();
+                return bytes.ConvertTo<ResponseResult>();
             }
         }
 
@@ -88,13 +88,13 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 删除标签成员
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult DeleteTagsMember(string accessToken, RequestBody_Member body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers")
+        public ResponseResult DeleteTagsMember(string accessToken, RequestBody_Member body, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers")
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] bytes = client.UploadData($"{requestUrl}?access_token={accessToken}", "POST", body.ToBytes());
-                return bytes.ConvertTo<BaseResponseResult>();
+                return bytes.ConvertTo<ResponseResult>();
             }
         }
 
@@ -102,7 +102,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 获取标签列表
         /// </summary>
         /// <returns></returns>
-        public BaseResponseResult FindTagsCollection(string accessToken, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/list")
+        public ResponseResult FindTagsCollection(string accessToken, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/list")
         {
             using (WebClient client = new WebClient())
             {
@@ -115,7 +115,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <summary>
         /// 返回结果
         /// </summary>
-        public class Result : BaseResponseResult
+        public class Result : ResponseResult
         {
             /// <summary>
             /// 标签id，整型，指定此参数时新增的标签会生成对应的标签id，不指定时则以目前最大的id自增。

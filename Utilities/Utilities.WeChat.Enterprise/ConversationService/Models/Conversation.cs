@@ -62,14 +62,14 @@ namespace Utilities.WeChat.Enterprise.ConversationService.Models
         /// </summary>
         /// <param name="conversation">会话</param>
         /// <returns></returns>
-        public static BaseResponseResult Create(Conversation conversation)
+        public static ResponseResult Create(Conversation conversation)
         {
             using (WebClient webclient = new WebClient())
             {
                 webclient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={conversation.AccessToken.access_token}", "Post", conversation.ToBytes());
                 string result = responseResult.ParseString();
-                var data = result.ConvertTo<BaseResponseResult>();
+                var data = result.ConvertTo<ResponseResult>();
                 return data;
             }
         }
@@ -82,7 +82,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService.Models
         /// <param name="owner">管理员userid</param>
         /// <param name="userlist">会话成员列表</param>
         /// <returns></returns>
-        public BaseResponseResult Create(string chatid, string name, string owner, IEnumerable<string> userlist)
+        public ResponseResult Create(string chatid, string name, string owner, IEnumerable<string> userlist)
         {
             this.chatid = chatid;
             this.name = name;
@@ -94,7 +94,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService.Models
                 webclient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={this.AccessToken.access_token}", "Post", this.ToBytes());
                 string result = responseResult.ParseString();
-                var data = result.ConvertTo<BaseResponseResult>();
+                var data = result.ConvertTo<ResponseResult>();
                 return data;
             }
         }

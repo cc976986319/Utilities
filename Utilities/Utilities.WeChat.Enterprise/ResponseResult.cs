@@ -10,7 +10,7 @@ namespace Utilities.WeChat.Enterprise
     /// <summary>
     /// 响应类型(返回基类)
     /// </summary>
-    public class BaseResponseResult
+    public class ResponseResult
     {
         /// <summary>
         /// 返回码

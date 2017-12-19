@@ -82,7 +82,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// <param name="content">消息内容</param>
         /// <param name="isSingle">类型：默认单聊</param>
         /// <returns></returns>
-        public BaseResponseResult SendText(string id, string sender, string content, bool isSingle = true)
+        public ResponseResult SendText(string id, string sender, string content, bool isSingle = true)
         {
             this.SetBaseSetting(id, sender, "text", isSingle);
 
@@ -98,7 +98,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// <param name="sender">发送人</param>
         /// <param name="media_id">media_id，可以调用上传素材文件接口获取</param>
         /// <param name="isSingle">类型：默认单聊</param>
-        public BaseResponseResult SendImage(string id, string sender, string media_id, bool isSingle = true)
+        public ResponseResult SendImage(string id, string sender, string media_id, bool isSingle = true)
         {
             this.SetBaseSetting(id, sender, "image", isSingle);
 
@@ -114,7 +114,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// <param name="sender">发送人</param>
         /// <param name="media_id">media_id，可以调用上传素材文件接口获取</param>
         /// <param name="isSingle">类型：默认单聊</param>
-        public BaseResponseResult SendFile(string id, string sender, string media_id, bool isSingle = true)
+        public ResponseResult SendFile(string id, string sender, string media_id, bool isSingle = true)
         {
             this.SetBaseSetting(id, sender, "file", isSingle);
 
@@ -130,7 +130,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// <param name="sender">发送人</param>
         /// <param name="media_id">media_id，可以调用上传素材文件接口获取</param>
         /// <param name="isSingle">类型：默认单聊</param>
-        public BaseResponseResult SendVoice(string id, string sender, string media_id, bool isSingle = true)
+        public ResponseResult SendVoice(string id, string sender, string media_id, bool isSingle = true)
         {
             this.SetBaseSetting(id, sender, "voice", isSingle);
 
@@ -150,7 +150,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// <param name="thumb_media_id">图片media_id，可以调用上传素材文件接口获取</param>
         /// <param name="isSingle">类型：默认单聊</param>
         /// <returns></returns>
-        public BaseResponseResult SendLink(string id, string sender, string title, string description, string url, string thumb_media_id, bool isSingle = true)
+        public ResponseResult SendLink(string id, string sender, string title, string description, string url, string thumb_media_id, bool isSingle = true)
         {
             this.SetBaseSetting(id, sender, "link", isSingle);
 
@@ -180,7 +180,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
         /// 发送
         /// </summary>
         /// <returns></returns>
-        protected virtual BaseResponseResult Sending()
+        protected virtual ResponseResult Sending()
         {
             using (WebClient webclient = new WebClient())
             {
@@ -188,7 +188,7 @@ namespace Utilities.WeChat.Enterprise.ConversationService
 
                 byte[] responseResult = webclient.UploadData($"https://qyapi.weixin.qq.com/cgi-bin/chat/send?access_token={this.AccessToken.access_token}", "POST", this.ToBytes());
                 string result = responseResult.ParseString();
-                return result.ConvertTo<BaseResponseResult>();
+                return result.ConvertTo<ResponseResult>();
             }
         }
 
