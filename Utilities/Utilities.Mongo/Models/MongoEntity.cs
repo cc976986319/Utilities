@@ -10,6 +10,10 @@ namespace Utilities.Mongo.Models
     /// <summary>
     /// Mongo实体(基实体)
     /// </summary>
+    /// <remarks>
+    /// [BsonIgnore]:字段忽略映射到数据库特性
+    /// [BsonElement]:设置字段映射到数据库字段名
+    /// </remarks>
     public class MongoEntity
     {
         /// <summary>
