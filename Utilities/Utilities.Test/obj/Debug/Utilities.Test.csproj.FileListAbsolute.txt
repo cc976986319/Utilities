@@ -17,6 +17,14 @@ E:\开源项目\Utilities\Utilities\Utilities.Test\obj\Debug\Utilities.Test.dll
 E:\开源项目\Utilities\Utilities\Utilities.Test\obj\Debug\Utilities.Test.pdb
 E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.Test.dll.config
 E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.WeChat.Enterprise.dll
-E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Newtonsoft.Json.dll
 E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.WeChat.Enterprise.pdb
-E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Newtonsoft.Json.xml
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Bson.dll
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Driver.Core.dll
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Driver.dll
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.Mongo.dll
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.Mongo.pdb
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\Utilities.Mongo.xml
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Bson.xml
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Driver.xml
+E:\开源项目\Utilities\Utilities\Utilities.Test\bin\Debug\MongoDB.Driver.Core.xml

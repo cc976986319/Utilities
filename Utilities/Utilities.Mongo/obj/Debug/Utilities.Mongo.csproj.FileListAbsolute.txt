@@ -10,3 +10,4 @@ E:\开源项目\Utilities\Utilities\Utilities.Mongo\bin\Debug\MongoDB.Driver.xml
 E:\开源项目\Utilities\Utilities\Utilities.Mongo\bin\Debug\MongoDB.Driver.Core.xml
 E:\开源项目\Utilities\Utilities\Utilities.Mongo\obj\Debug\Utilities.Mongo.dll
 E:\开源项目\Utilities\Utilities\Utilities.Mongo\obj\Debug\Utilities.Mongo.pdb
+E:\开源项目\Utilities\Utilities\Utilities.Mongo\obj\Debug\Utilities.Mongo.csprojResolveAssemblyReference.cache

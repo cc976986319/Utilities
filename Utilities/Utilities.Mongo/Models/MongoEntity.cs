@@ -10,12 +10,16 @@ namespace Utilities.Mongo.Models
     /// <summary>
     /// Mongo实体(基实体)
     /// </summary>
-    public class EntityModel
+    public class MongoEntity
     {
         /// <summary>
         /// 实例化
         /// </summary>
-        public EntityModel()
+        /// <remarks>
+        /// [BsonIgnore]:是忽略本字段特性
+        /// [BsonElement("Name")]:是标识字段名称(数据库字段名称)
+        /// </remarks>
+        public MongoEntity()
         {
             this._id = Guid.NewGuid().ToString("N");
         }
@@ -29,7 +33,7 @@ namespace Utilities.Mongo.Models
         /// 获取数据集名称
         /// </summary>
         /// <returns></returns>
-        public static string GetCollectionName<TEntity>() where TEntity : EntityModel
+        public static string GetCollectionName<TEntity>() where TEntity : MongoEntity
         {
             Attributes.CollectionAttribute collection = typeof(TEntity).GetCustomAttribute<Attributes.CollectionAttribute>();
             if (collection == null)

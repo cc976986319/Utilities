@@ -21,7 +21,7 @@ namespace Utilities.Mongo.Extensions.Mongo
         /// <typeparam name="TDocument">文档：<see cref="{TDocument}"/>必须继承于<see cref="{EntityModel}"/></typeparam>
         /// <param name="document"></param>
         /// <returns></returns>
-        public static UpdateDefinition<TDocument> MarkUpdateDefinition<TDocument>(this TDocument document) where TDocument : EntityModel
+        public static UpdateDefinition<TDocument> MarkUpdateDefinition<TDocument>(this TDocument document) where TDocument : MongoEntity
         {
             var updateDefinitionList = MarkUpdateDefinitionByField(document).ToList();// 获取需要标识的字段
 

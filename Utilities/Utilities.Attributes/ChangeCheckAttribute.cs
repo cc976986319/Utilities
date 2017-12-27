@@ -10,6 +10,7 @@ namespace Utilities.Attributes
     /// <summary>
     /// 改变检查特性
     /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
     public class ChangeCheckAttribute : Attribute
     {
         /// <summary>

@@ -58,7 +58,7 @@
     <Compile Include="Extensions\Microsoft\StringExtension.cs" />
     <Compile Include="Extensions\Mongo\DocumentExtension.cs" />
     <Compile Include="Extensions\Mongo\FieldExtension.cs" />
-    <Compile Include="Models\EntityModel.cs" />
+    <Compile Include="Models\MongoEntity.cs" />
     <Compile Include="Models\MapReduceResult.cs" />
     <Compile Include="MongoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,6 +9,24 @@
             文档集名称特性
             </summary>
         </member>
+        <member name="M:Utilities.Mongo.Attributes.CollectionAttribute.#ctor">
+            <summary>
+            实例化
+            </summary>
+        </member>
+        <member name="M:Utilities.Mongo.Attributes.CollectionAttribute.#ctor(System.String)">
+            <summary>
+            实例化
+            </summary>
+            <param name="name">文档名称</param>
+        </member>
+        <member name="M:Utilities.Mongo.Attributes.CollectionAttribute.#ctor(System.String,System.String)">
+            <summary>
+            实例化
+            </summary>
+            <param name="name">文档名称</param>
+            <param name="describe">描述</param>
+        </member>
         <member name="P:Utilities.Mongo.Attributes.CollectionAttribute.Name">
             <summary>
             名称
@@ -56,22 +74,26 @@
             <param name="document"></param>
             <returns></returns>
         </member>
-        <member name="T:Utilities.Mongo.Models.EntityModel">
+        <member name="T:Utilities.Mongo.Models.MongoEntity">
             <summary>
             Mongo实体(基实体)
             </summary>
         </member>
-        <member name="M:Utilities.Mongo.Models.EntityModel.#ctor">
+        <member name="M:Utilities.Mongo.Models.MongoEntity.#ctor">
             <summary>
             实例化
             </summary>
+            <remarks>
+            [BsonIgnore]:是忽略本字段特性
+            [BsonElement("Name")]:是标识字段名称(数据库字段名称)
+            </remarks>
         </member>
-        <member name="P:Utilities.Mongo.Models.EntityModel._id">
+        <member name="P:Utilities.Mongo.Models.MongoEntity._id">
             <summary>
             编号(数据编号)
             </summary>
         </member>
-        <member name="M:Utilities.Mongo.Models.EntityModel.GetCollectionName``1">
+        <member name="M:Utilities.Mongo.Models.MongoEntity.GetCollectionName``1">
             <summary>
             获取数据集名称
             </summary>
@@ -251,6 +273,13 @@
             <returns></returns>
         </member>
         <member name="M:Utilities.Mongo.MongoContext.Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            查询
+            </summary>
+            <param name="filter">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Mongo.MongoContext.Find``1(MongoDB.Driver.FilterDefinition{``0})">
             <summary>
             查询
             </summary>

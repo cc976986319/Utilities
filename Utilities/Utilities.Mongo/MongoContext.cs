@@ -58,7 +58,7 @@ namespace Utilities.Mongo
         /// 添加一条数据
         /// </summary>
         /// <param name="entity">要添加的数据</param>
-        public void Add<TEntity>(TEntity entity) where TEntity : EntityModel
+        public void Add<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             this.GetCollection<TEntity>().InsertOne(entity);
         }
@@ -67,7 +67,7 @@ namespace Utilities.Mongo
         /// 添加多条数据
         /// </summary>
         /// <param name="entitys">要添加的数据集</param>
-        public void AddRange<TEntity>(IEnumerable<TEntity> entitys) where TEntity : EntityModel
+        public void AddRange<TEntity>(IEnumerable<TEntity> entitys) where TEntity : MongoEntity
         {
             this.GetCollection<TEntity>().InsertMany(entitys);
         }
@@ -77,7 +77,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entity">要添加的数据</param>
         /// <returns></returns>
-        public async Task AddAsync<TEntity>(TEntity entity) where TEntity : EntityModel
+        public async Task AddAsync<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             await this.GetCollection<TEntity>().InsertOneAsync(entity).ConfigureAwait(false);
         }
@@ -87,7 +87,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entitys">要添加的数据集</param>
         /// <returns></returns>
-        public async Task AddRangeAsync<TEntity>(IEnumerable<TEntity> entitys) where TEntity : EntityModel
+        public async Task AddRangeAsync<TEntity>(IEnumerable<TEntity> entitys) where TEntity : MongoEntity
         {
             await this.GetCollection<TEntity>().InsertManyAsync(entitys).ConfigureAwait(false);
         }
@@ -102,7 +102,7 @@ namespace Utilities.Mongo
         /// <typeparam name="TEntity">文档类型</typeparam>
         /// <param name="entity">新的文档值</param>
         /// <returns></returns>
-        public long Update<TEntity>(TEntity entity) where TEntity : EntityModel
+        public long Update<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             return this.Update<TEntity>(e => e._id == entity._id, entity);
         }
@@ -114,7 +114,7 @@ namespace Utilities.Mongo
         /// <param name="filter">修改条件</param>
         /// <param name="entity">新的文档值</param>
         /// <returns></returns>
-        public long Update<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : EntityModel
+        public long Update<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : MongoEntity
         {
             UpdateDefinition<TEntity> updateDefinition = entity.MarkUpdateDefinition<TEntity>();
             UpdateDefinition<TEntity> updateDefinitionBuilder = new UpdateDefinitionBuilder<TEntity>().Combine(updateDefinition);
@@ -128,7 +128,7 @@ namespace Utilities.Mongo
         /// <param name="filter">修改条件</param>
         /// <param name="entity">新的文档值</param>
         /// <returns></returns>
-        public async Task<long> UpdateAsync<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : EntityModel
+        public async Task<long> UpdateAsync<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : MongoEntity
         {
             UpdateDefinition<TEntity> updateDefinition = entity.MarkUpdateDefinition<TEntity>();
             UpdateDefinition<TEntity> updateDefinitionBuilder = new UpdateDefinitionBuilder<TEntity>().Combine(updateDefinition);
@@ -143,7 +143,7 @@ namespace Utilities.Mongo
         /// <param name="filter">修改条件</param>
         /// <param name="entity">新的文档值</param>
         /// <returns></returns>
-        public long UpdateMany<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : EntityModel
+        public long UpdateMany<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : MongoEntity
         {
             UpdateDefinition<TEntity> updateDefinition = entity.MarkUpdateDefinition<TEntity>();
             UpdateDefinition<TEntity> updateDefinitionBuilder = new UpdateDefinitionBuilder<TEntity>().Combine(updateDefinition);
@@ -157,7 +157,7 @@ namespace Utilities.Mongo
         /// <param name="filter">修改条件</param>
         /// <param name="entity">新的文档值</param>
         /// <returns></returns>
-        public async Task<long> UpdateManyAsync<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : EntityModel
+        public async Task<long> UpdateManyAsync<TEntity>(Expression<Func<TEntity, bool>> filter, TEntity entity) where TEntity : MongoEntity
         {
             UpdateDefinition<TEntity> updateDefinition = entity.MarkUpdateDefinition<TEntity>();
             UpdateDefinition<TEntity> updateDefinitionBuilder = new UpdateDefinitionBuilder<TEntity>().Combine(updateDefinition);
@@ -174,7 +174,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">删除条件</param>
         /// <returns></returns>
-        public long DeleteOne<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public long DeleteOne<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
         {
             return this.GetCollection<TEntity>().DeleteOne(filter).DeletedCount;
         }
@@ -184,7 +184,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">删除条件</param>
         /// <returns></returns>
-        public async Task<long> DeleteOneAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public async Task<long> DeleteOneAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
         {
             var result = await this.GetCollection<TEntity>().DeleteOneAsync(filter);
             return result.DeletedCount;
@@ -195,7 +195,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entity">要删除的数据</param>
         /// <returns></returns>
-        public long DeleteOne<TEntity>(TEntity entity) where TEntity : EntityModel
+        public long DeleteOne<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             return this.DeleteOne(entity);
         }
@@ -205,7 +205,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entity">要删除的数据</param>
         /// <returns></returns>
-        public async Task<long> DeleteOneAsync<TEntity>(TEntity entity) where TEntity : EntityModel
+        public async Task<long> DeleteOneAsync<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             return await this.DeleteOneAsync(entity);
         }
@@ -215,7 +215,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">删除条件</param>
         /// <returns></returns>
-        public long DeleteRange<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public long DeleteRange<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
         {
             return this.GetCollection<TEntity>().DeleteMany(filter).DeletedCount;
         }
@@ -225,7 +225,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">删除条件</param>
         /// <returns></returns>
-        public async Task<long> DeleteRangeAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public async Task<long> DeleteRangeAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
         {
             var result = await this.GetCollection<TEntity>().DeleteManyAsync(filter);
             return result.DeletedCount;
@@ -241,7 +241,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entity">要替换的数据</param>
         /// <returns></returns>
-        public long Replace<TEntity>(TEntity entity) where TEntity : EntityModel
+        public long Replace<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             return this.GetCollection<TEntity>().ReplaceOne(e => e._id == entity._id, entity, new UpdateOptions() { IsUpsert = true }).ModifiedCount;
         }
@@ -251,7 +251,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="entity">要替换的数据</param>
         /// <returns></returns>
-        public async Task<long> ReplaceAsync<TEntity>(TEntity entity) where TEntity : EntityModel
+        public async Task<long> ReplaceAsync<TEntity>(TEntity entity) where TEntity : MongoEntity
         {
             ReplaceOneResult resut = await this.GetCollection<TEntity>().ReplaceOneAsync(e => e._id == entity._id, entity, new UpdateOptions() { IsUpsert = true });
             return resut.ModifiedCount;
@@ -266,7 +266,17 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">查询条件</param>
         /// <returns></returns>
-        public IEnumerable<TEntity> Find<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public IEnumerable<TEntity> Find<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
+        {
+            return this.GetCollection<TEntity>().Find(filter).ToEnumerable();
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="filter">查询条件</param>
+        /// <returns></returns>
+        public IEnumerable<TEntity> Find<TEntity>(FilterDefinition<TEntity> filter) where TEntity : MongoEntity
         {
             return this.GetCollection<TEntity>().Find(filter).ToEnumerable();
         }
@@ -276,7 +286,7 @@ namespace Utilities.Mongo
         /// </summary>
         /// <param name="filter">查询条件</param>
         /// <returns></returns>
-        public async Task<IEnumerable<TEntity>> FindAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : EntityModel
+        public async Task<IEnumerable<TEntity>> FindAsync<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : MongoEntity
         {
             var result = await this.GetCollection<TEntity>().FindAsync(filter).ConfigureAwait(false);
             return result.ToEnumerable();
@@ -286,7 +296,7 @@ namespace Utilities.Mongo
         /// 查询(lambda)
         /// </summary>
         /// <returns></returns>
-        public IQueryable<TEntity> AsQueryable<TEntity>() where TEntity : EntityModel
+        public IQueryable<TEntity> AsQueryable<TEntity>() where TEntity : MongoEntity
         {
             return this.GetCollection<TEntity>().AsQueryable().AsQueryable();
         }
@@ -310,9 +320,9 @@ namespace Utilities.Mongo
         /// </summary>
         /// <typeparam name="TEntity">数据集类型</typeparam>
         /// <returns></returns>
-        public IMongoCollection<TEntity> GetCollection<TEntity>() where TEntity : EntityModel
+        public IMongoCollection<TEntity> GetCollection<TEntity>() where TEntity : MongoEntity
         {
-            return this.MongoDatabase.GetCollection<TEntity>(EntityModel.GetCollectionName<TEntity>());
+            return this.MongoDatabase.GetCollection<TEntity>(MongoEntity.GetCollectionName<TEntity>());
         }
 
         /// <summary>
@@ -324,7 +334,7 @@ namespace Utilities.Mongo
         /// <param name="reduce">Reduce语句</param>
         /// <param name="options">选项配置</param>
         /// <returns></returns>
-        public IEnumerable<ReduceResult<TResult>> MapReduce<TEntity, TResult>(string map, string reduce, MapReduceOptions<TEntity, ReduceResult<TResult>> options = null) where TEntity : EntityModel
+        public IEnumerable<ReduceResult<TResult>> MapReduce<TEntity, TResult>(string map, string reduce, MapReduceOptions<TEntity, ReduceResult<TResult>> options = null) where TEntity : MongoEntity
         {
             var result = this.GetCollection<TEntity>().MapReduce(map, reduce, options);
             result.MoveNext();
@@ -340,7 +350,7 @@ namespace Utilities.Mongo
         /// <param name="reduce">Reduce语句</param>
         /// <param name="options">选项配置</param>
         /// <returns></returns>
-        public async Task<IEnumerable<ReduceResult<TResult>>> MapReduceAsync<TEntity, TResult>(string map, string reduce, MapReduceOptions<TEntity, ReduceResult<TResult>> options = null) where TEntity : EntityModel
+        public async Task<IEnumerable<ReduceResult<TResult>>> MapReduceAsync<TEntity, TResult>(string map, string reduce, MapReduceOptions<TEntity, ReduceResult<TResult>> options = null) where TEntity : MongoEntity
         {
             var result = await this.GetCollection<TEntity>().MapReduceAsync(map, reduce, options);
             await result.MoveNextAsync();
