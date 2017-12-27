@@ -43,12 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessToken.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="Configs\Base\Config.cs" />
     <Compile Include="Configs\CardConfig.cs" />
     <Compile Include="Configs\ContactConfig.cs" />
     <Compile Include="Configs\JsapiTicket.cs" />
     <Compile Include="Configs\Js_SDKConfig.cs" />
     <Compile Include="Contacts\Department.cs" />
+    <Compile Include="Contacts\Member.cs" />
     <Compile Include="Contacts\Tags.cs" />
     <Compile Include="ConversationService\MessageSending.cs" />
     <Compile Include="ConversationService\Models\Conversation.cs" />
