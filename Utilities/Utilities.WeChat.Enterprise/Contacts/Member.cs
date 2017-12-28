@@ -106,13 +106,44 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_SimpleList SimpleList(string accessToken, string departmentId, Fetch_Child fetchChild, MemberStatus[] status, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist")
+        public Result_SimpleList SimpleList(string accessToken, string departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                byte[] bytes = client.DownloadData($"{requestUrl}access_token={accessToken}&department_id={departmentId}&fetch_child={fetchChild}&status={status}");
+                byte[] bytes = client.DownloadData($"{requestUrl}?access_token={accessToken}&department_id={departmentId}&fetch_child={(int)fetchChild}&status={status.ToIntArray().Superposition()}");
                 return bytes.ConvertTo<Result_SimpleList>();
+            }
+        }
+
+        /// <summary>
+        /// 获取部门成员
+        /// </summary>
+        /// <param name="accessToken">调用接口凭证</param>
+        /// <param name="departmentId">获取的部门id</param>
+        /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
+        /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
+        /// <returns></returns>
+        public Result_SimpleList SimpleList(string accessToken, string departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
+        {
+            return this.SimpleList(accessToken, departmentId, fetchChild, "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", status);
+        }
+
+        /// <summary>
+        /// 获取部门成员(详情)
+        /// </summary>
+        /// <param name="accessToken">调用接口凭证</param>
+        /// <param name="departmentId">获取的部门id</param>
+        /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
+        /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
+        /// <returns></returns>
+        public Result_List List(string accessToken, string departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                byte[] bytes = client.DownloadData($"{requestUrl}access_token={accessToken}&department_id={departmentId}&fetch_child={fetchChild}&status={status.ToIntArray().Superposition()}");
+                return bytes.ConvertTo<Result_List>();
             }
         }
 
@@ -124,14 +155,9 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_List List(string accessToken, string departmentId, Fetch_Child fetchChild, MemberStatus[] status, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist")
+        public Result_List List(string accessToken, string departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
         {
-            using (WebClient client = new WebClient())
-            {
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                byte[] bytes = client.DownloadData($"{requestUrl}access_token={accessToken}&department_id={departmentId}&fetch_child={fetchChild}&status={status}");
-                return bytes.ConvertTo<Result_List>();
-            }
+            return this.List(accessToken, departmentId, fetchChild, "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", status);
         }
 
         /// <summary>

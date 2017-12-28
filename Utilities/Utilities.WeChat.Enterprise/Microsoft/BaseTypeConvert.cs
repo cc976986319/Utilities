@@ -30,6 +30,9 @@ namespace Utilities.WeChat.Enterprise.Microsoft
         /// <returns></returns>
         public static T ConvertTo<T>(this byte[] bytes) where T : class
         {
+#if DEBUG
+            string json = bytes.ParseString();
+#endif
             return new JavaScriptSerializer().Deserialize<T>(bytes.ParseString());
         }
 
@@ -52,6 +55,16 @@ namespace Utilities.WeChat.Enterprise.Microsoft
         public static byte[] ToBytes(this object value)
         {
             return Encoding.UTF8.GetBytes(new JavaScriptSerializer().Serialize(value));
+        }
+
+        /// <summary>
+        /// 整形列表叠加
+        /// </summary>
+        /// <param name="items">整形列表</param>
+        /// <returns></returns>
+        public static int Superposition(this IEnumerable<int> items)
+        {
+            return items.Sum(e => e);
         }
     }
 }

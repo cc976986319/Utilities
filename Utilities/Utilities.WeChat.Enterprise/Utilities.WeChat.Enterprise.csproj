@@ -49,6 +49,7 @@
     <Compile Include="Configs\ContactConfig.cs" />
     <Compile Include="Configs\JsapiTicket.cs" />
     <Compile Include="Configs\Js_SDKConfig.cs" />
+    <Compile Include="Contacts\DataExtension.cs" />
     <Compile Include="Contacts\Department.cs" />
     <Compile Include="Contacts\Member.cs" />
     <Compile Include="Contacts\Tags.cs" />
