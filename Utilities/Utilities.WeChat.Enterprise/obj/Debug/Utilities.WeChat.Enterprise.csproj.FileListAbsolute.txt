@@ -2,3 +2,4 @@ E:\开源项目\Utilities\Utilities\Utilities.WeChat.Enterprise\bin\Debug\Utilit
 E:\开源项目\Utilities\Utilities\Utilities.WeChat.Enterprise\bin\Debug\Utilities.WeChat.Enterprise.pdb
 E:\开源项目\Utilities\Utilities\Utilities.WeChat.Enterprise\obj\Debug\Utilities.WeChat.Enterprise.dll
 E:\开源项目\Utilities\Utilities\Utilities.WeChat.Enterprise\obj\Debug\Utilities.WeChat.Enterprise.pdb
+E:\开源项目\Utilities\Utilities\Utilities.WeChat.Enterprise\obj\Debug\Utilities.WeChat.Enterprise.csprojResolveAssemblyReference.cache

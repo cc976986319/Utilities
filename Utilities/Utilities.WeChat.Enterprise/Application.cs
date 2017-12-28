@@ -21,7 +21,7 @@ namespace Utilities.WeChat.Enterprise
         /// <param name="requestUrl">请求地址</param>
         /// <remarks>该API用于获取企业号某个应用的基本信息，包括头像、昵称、帐号类型、认证类型、可见范围等信息</remarks>
         /// <returns></returns>
-        public GetResult Get(string accessToken, int agentid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/agent/get")
+        public GetResult Get(string accessToken, string agentid, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/agent/get")
         {
             using (WebClient client = new WebClient())
             {
