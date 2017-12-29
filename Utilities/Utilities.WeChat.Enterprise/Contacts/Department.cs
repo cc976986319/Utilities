@@ -64,6 +64,13 @@ namespace Utilities.WeChat.Enterprise.Contacts
             }
         }
 
+        /// <summary>
+        /// 获取部门
+        /// </summary>
+        /// <param name="accessToken">调用接口凭证</param>
+        /// <param name="id">部门编号</param>
+        /// <param name="requestUrl">请求地址</param>
+        /// <returns></returns>
         public Result_List List(string accessToken, int id, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/department/list")
         {
             using (WebClient client = new WebClient())

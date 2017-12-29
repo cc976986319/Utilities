@@ -106,7 +106,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_SimpleList SimpleList(string accessToken, string departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
+        public Result_SimpleList SimpleList(string accessToken, int departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
         {
             using (WebClient client = new WebClient())
             {
@@ -124,7 +124,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_SimpleList SimpleList(string accessToken, string departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
+        public Result_SimpleList SimpleList(string accessToken, int departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
         {
             return this.SimpleList(accessToken, departmentId, fetchChild, "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", status);
         }
@@ -137,12 +137,12 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_List List(string accessToken, string departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
+        public Result_List List(string accessToken, int departmentId, Fetch_Child fetchChild, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", params MemberStatus[] status)
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                byte[] bytes = client.DownloadData($"{requestUrl}access_token={accessToken}&department_id={departmentId}&fetch_child={fetchChild}&status={status.ToIntArray().Superposition()}");
+                byte[] bytes = client.DownloadData($"{requestUrl}?access_token={accessToken}&department_id={departmentId}&fetch_child={(int)fetchChild}&status={status.ToIntArray().Superposition()}");
                 return bytes.ConvertTo<Result_List>();
             }
         }
@@ -155,9 +155,9 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// <param name="fetchChild">1/0：是否递归获取子部门下面的成员</param>
         /// <param name="status">0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加,未填写则默认为4</param>
         /// <returns></returns>
-        public Result_List List(string accessToken, string departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
+        public Result_List List(string accessToken, int departmentId, Fetch_Child fetchChild, params MemberStatus[] status)
         {
-            return this.List(accessToken, departmentId, fetchChild, "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist", status);
+            return this.List(accessToken, departmentId, fetchChild, "https://qyapi.weixin.qq.com/cgi-bin/user/list", status);
         }
 
         /// <summary>
@@ -219,6 +219,18 @@ namespace Utilities.WeChat.Enterprise.Contacts
             /// 扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值
             /// </summary>
             public Extension extattr { get; set; }
+
+            /// <summary>
+            /// 转换
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public static MemberBody ConvertTo(Result result)
+            {
+                string value = result.ToString();
+
+                return value.ConvertTo<MemberBody>();
+            }
         }
 
         /// <summary>

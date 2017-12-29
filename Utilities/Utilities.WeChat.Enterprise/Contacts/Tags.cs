@@ -102,7 +102,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
         /// 获取标签列表
         /// </summary>
         /// <returns></returns>
-        public ResponseResult FindTagsCollection(string accessToken, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/list")
+        public Result FindTagsCollection(string accessToken, string requestUrl = "https://qyapi.weixin.qq.com/cgi-bin/tag/list")
         {
             using (WebClient client = new WebClient())
             {

@@ -51,6 +51,15 @@ namespace Utilities.Test
             var data = tags.FindTagsMember(accessToken.access_token, 9);
         }
 
+        [TestMethod]
+        public void GetDepartment()
+        {
+            //AccessToken accessToken = AccessToken.GetAccessToken("wxf4cdff3841975b54", "xBV8VWdvKYb8f4EyIbfYB6zPR0IYwD12JyiGjCADPWrVAGRXVGiANrKAOa1Jm21S");
+            Department department = new Department();
+            //2460,2477
+            var data = department.List("ZOfdxC8BE9mVSmPvzv99iRHHQSxMlHYWRX44S00sPeEJvXh8YMYqOEDphLXG4hVU", 2460);
+        }
+
         /// <summary>
         /// 获取应用详细信息
         /// </summary>
@@ -73,11 +82,27 @@ namespace Utilities.Test
         }
 
         [TestMethod]
+        public void Application()
+        {
+            //AccessToken accessToken = AccessToken.GetAccessToken("wxf4cdff3841975b54", "xBV8VWdvKYb8f4EyIbfYB6zPR0IYwD12JyiGjCADPWrVAGRXVGiANrKAOa1Jm21S");
+            Application application = new Application();
+            var data = application.Get("ZOfdxC8BE9mVSmPvzv99iRHHQSxMlHYWRX44S00sPeEJvXh8YMYqOEDphLXG4hVU", 115);
+        }
+
+        [TestMethod]
         public void GetUserList()
         {
             AccessToken accessToken = AccessToken.GetAccessToken("wxf4cdff3841975b54", "xBV8VWdvKYb8f4EyIbfYB6zPR0IYwD12JyiGjCADPWrVAGRXVGiANrKAOa1Jm21S");
             Member member = new Member();
-            var data = member.SimpleList(accessToken.access_token, "1", Member.Fetch_Child.GetAll, Member.MemberStatus.Disabled, Member.MemberStatus.NotAttention);
+            var data = member.SimpleList(accessToken.access_token, 1, Member.Fetch_Child.GetAll, Member.MemberStatus.Disabled, Member.MemberStatus.NotAttention);
+        }
+
+        [TestMethod]
+        public void ApplicationBody()
+        {
+            AccessToken accessToken = AccessToken.GetAccessToken("wxf4cdff3841975b54", "xBV8VWdvKYb8f4EyIbfYB6zPR0IYwD12JyiGjCADPWrVAGRXVGiANrKAOa1Jm21S");
+            Application application = new Application();
+            var data = application.Scope(accessToken.access_token, 115);
         }
 
         [TestMethod]
