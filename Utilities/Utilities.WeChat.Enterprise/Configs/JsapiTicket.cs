@@ -24,12 +24,12 @@ namespace Utilities.WeChat.Enterprise.Configs
         public string group_id { get; set; }
 
         /// <summary>
-        /// ticket是企业号号用于调用微信JS接口的临时票据
+        /// 有效期7200秒，开发者必须在自己的服务全局缓存
         /// </summary>
         public int expires_in { get; set; }
 
         /// <summary>
-        /// 有效期7200秒，开发者必须在自己的服务全局缓存
+        /// ticket是企业号号用于调用微信JS接口的临时票据
         /// </summary>
         public string ticket { get; set; }
 

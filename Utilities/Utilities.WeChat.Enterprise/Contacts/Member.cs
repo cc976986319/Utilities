@@ -352,7 +352,7 @@ namespace Utilities.WeChat.Enterprise.Contacts
             /// <summary>
             /// 成员列表
             /// </summary>
-            public List<MemberBody> userlist { get; set; }
+            public List<Result> userlist { get; set; }
         }
 
         /// <summary>

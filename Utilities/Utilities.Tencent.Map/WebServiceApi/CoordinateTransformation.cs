@@ -128,13 +128,8 @@ namespace Utilities.Tencent.Map.WebServiceApi
             /// <returns></returns>
             public static RequestResult Parse(string jsonStr)
             {
-#if DEBUG
                 RequestResult result = new JavaScriptSerializer().Deserialize<RequestResult>(jsonStr);
                 return result;
-#endif
-#if !DEBUG
-                return JsonConvert.DeserializeObject<RequestResult>(jsonStr);
-#endif
             }
         }
 

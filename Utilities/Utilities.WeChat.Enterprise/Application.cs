@@ -421,7 +421,7 @@ namespace Utilities.WeChat.Enterprise
             /// <summary>
             /// 成员
             /// </summary>
-            public List<Member.MemberBody> Members { get; set; }
+            public List<Member.Result> Members { get; set; }
 
             /// <summary>
             /// 部门
@@ -431,7 +431,7 @@ namespace Utilities.WeChat.Enterprise
                 /// <summary>
                 /// 成员
                 /// </summary>
-                public List<Member.MemberBody> Members { get; set; }
+                public List<Member.Result> Members { get; set; }
 
                 /// <summary>
                 /// 子级部门
@@ -444,7 +444,7 @@ namespace Utilities.WeChat.Enterprise
                 /// <param name="body"></param>
                 /// <param name="members"></param>
                 /// <returns></returns>
-                public static DepartmentBody ConvertTo(Department.RequestBody body, List<Member.MemberBody> members)
+                public static DepartmentBody ConvertTo(Department.RequestBody body, List<Member.Result> members)
                 {
                     if (body == null) throw new ArgumentNullException("body paramter is null value");
                     return new DepartmentBody()
@@ -483,12 +483,12 @@ namespace Utilities.WeChat.Enterprise
             /// 获取所有成员
             /// </summary>
             /// <returns></returns>
-            List<Member.MemberBody> GetAllMember()
+            List<Member.Result> GetAllMember()
             {
-                List<Member.MemberBody> members = null;
+                List<Member.Result> members = null;
                 if (this.GetResult != null && this.GetResult.errcode == 0 && this.GetResult.allow_partys != null && this.GetResult.allow_partys.partyid.Any())
                 {
-                    members = new List<Member.MemberBody>();
+                    members = new List<Member.Result>();
                     Member member = new Member();
                     foreach (int partyid in GetResult.allow_partys.partyid)
                     {
@@ -500,7 +500,7 @@ namespace Utilities.WeChat.Enterprise
                 return members;
             }
 
-            DepartmentBody CreateDepartemnt(int deptid, List<Department.RequestBody> departments, List<Member.MemberBody> members)
+            DepartmentBody CreateDepartemnt(int deptid, List<Department.RequestBody> departments, List<Member.Result> members)
             {
                 DepartmentBody body = null;
                 var dept = departments.FirstOrDefault(e => e.id == deptid);
@@ -555,12 +555,12 @@ namespace Utilities.WeChat.Enterprise
                     }
                     if (this.GetResult.allow_userinfos != null && this.GetResult.allow_userinfos.user != null && this.GetResult.allow_userinfos.user.Count > 0)
                     {
-                        this.Members = new List<Member.MemberBody>();
+                        this.Members = new List<Member.Result>();
                         Member member = new Member();
                         foreach (var user in this.GetResult.allow_userinfos.user)
                         {
                             var _member = member.Get(this.AccessToken, user.userid);
-                            this.Members.Add(Member.MemberBody.ConvertTo(_member));
+                            this.Members.Add(_member);
                         }
                     }
                 }

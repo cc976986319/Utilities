@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Web.Caching;
 
 namespace Utilities.WeChat.Enterprise.Configs
 {
@@ -24,12 +26,26 @@ namespace Utilities.WeChat.Enterprise.Configs
         /// <summary>
         /// 生成JS接口的临时票据
         /// </summary>
-        /// <param name="accessToken">全局唯一票据</param>
         /// <returns></returns>
-        protected override JsapiTicket CreateJsapiTicket(string accessToken)
+        protected override JsapiTicket CreateJsapiTicket()
         {
-            string requestUrl = $"https://qyapi.weixin.qq.com/cgi-bin/ticket/get?access_token={accessToken}&type=wx_card";
-            JsapiTicket responseResult = new JsapiTicket();
+            string key = $"{this.appId}{this.accessToken}wx_card_Ticket";
+            JsapiTicket responseResult = null;
+            if (HttpRuntime.Cache[key] == null)
+            {
+                string requestUrl = "https://" + $"qyapi.weixin.qq.com/cgi-bin/ticket/get?access_token={this.accessToken}&type=wx_card";
+                responseResult = JsapiTicket.Request(requestUrl);
+                if (responseResult.errcode == 0)
+                {
+                    int outTime = responseResult.expires_in - 60;// 过期时间
+                    if (outTime > 0)
+                        HttpRuntime.Cache.Add(key, responseResult, null, DateTime.Now.AddSeconds(outTime), TimeSpan.Zero, CacheItemPriority.Normal, null);
+                }
+                this.errcode = responseResult.errcode;
+                this.errmsg = responseResult.errmsg;
+            }
+            else
+                responseResult = (JsapiTicket)HttpRuntime.Cache[key];
             return responseResult;
         }
     }

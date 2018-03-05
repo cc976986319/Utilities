@@ -26,7 +26,13 @@ namespace Utilities.MVC.InversionOfControl.MEF
     /// </example>
     public class DependencySolver : IDependencyResolver
     {
+        /// <summary>
+        /// 容器
+        /// </summary>
         private readonly ComposablePartCatalog _catalog;
+        /// <summary>
+        /// 请求实例名
+        /// </summary>
         private string HttpContextKey { get; set; }
 
         /// <summary>

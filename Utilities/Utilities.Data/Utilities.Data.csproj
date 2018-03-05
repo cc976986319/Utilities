@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC9E3B7C-ECA0-4E74-904C-88A0043161DD}</ProjectGuid>
+    <ProjectGuid>{2958C716-91F2-452D-B9A0-9998C497C841}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Utilities.Extension</RootNamespace>
-    <AssemblyName>Utilities.Extension</AssemblyName>
+    <RootNamespace>Utilities.Data</RootNamespace>
+    <AssemblyName>Utilities.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,13 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\DataRowToEntity.cs" />
-    <Compile Include="IMapping.cs" />
-    <Compile Include="Mapping\DataTableToEntity.cs" />
-    <Compile Include="Mapping\EntityToEntity.cs" />
-    <Compile Include="Microsoft\StringExtension.cs" />
-    <Compile Include="Microsoft\XmlExtension.cs" />
+    <Compile Include="Cron\CronExpression.cs" />
+    <Compile Include="Cron\CronResolve.cs" />
+    <Compile Include="Cron\Observers\Base\Observer.cs" />
+    <Compile Include="Cron\Observers\DayObserver.cs" />
+    <Compile Include="Cron\Observers\DayOfWeekObserver.cs" />
+    <Compile Include="Cron\Observers\HourObserver.cs" />
+    <Compile Include="Cron\Observers\MinuteObserver.cs" />
+    <Compile Include="Cron\Observers\MonthObserver.cs" />
+    <Compile Include="Cron\Observers\Resolve\Pipelines\ResolvePipeline.cs" />
+    <Compile Include="Cron\Observers\Resolve\Pipelines\VerifyFormatPipeline.cs" />
+    <Compile Include="Cron\Observers\Resolve\Pipeline.cs" />
+    <Compile Include="Cron\Observers\Resolve\PipelineController.cs" />
+    <Compile Include="Cron\Observers\SecondObserver.cs" />
+    <Compile Include="Cron\Observers\YearObserver.cs" />
+    <Compile Include="Cron\TimeFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

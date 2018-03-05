@@ -11,7 +11,7 @@ namespace Utilities.WeChat.Enterprise
     /// <summary>
     /// 企业号的全局唯一票据
     /// </summary>
-    public class AccessToken
+    public class AccessToken : ResponseResult
     {
         /// <summary>
         /// 实例化

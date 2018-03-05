@@ -10,7 +10,7 @@ namespace Utilities.WeChat.Enterprise.Configs.Base
     /// <summary>
     /// 配置
     /// </summary>
-    public abstract class Config
+    public abstract class Config : ResponseResult
     {
         /// <summary>
         /// 实例化
@@ -33,12 +33,12 @@ namespace Utilities.WeChat.Enterprise.Configs.Base
         /// <summary>
         /// 需要配置信息的地址
         /// </summary>
-        private string url { get; set; }
+        public string url { get; private set; }
 
         /// <summary>
         /// 全局唯一票据
         /// </summary>
-        private string accessToken { get; set; }
+        public string accessToken { get; private set; }
 
         /// <summary>
         /// 测试版本
@@ -90,16 +90,15 @@ namespace Utilities.WeChat.Enterprise.Configs.Base
         /// <summary>
         /// 生成JS接口的临时票据
         /// </summary>
-        /// <param name="accessToken">全局唯一票据</param>
         /// <returns></returns>
-        protected abstract JsapiTicket CreateJsapiTicket(string accessToken);
+        protected abstract JsapiTicket CreateJsapiTicket();
 
         /// <summary>
         /// 生成签名
         /// </summary>
         private void CreateSignature()
         {
-            JsapiTicket jsapiTicket = this.CreateJsapiTicket(this.accessToken);
+            JsapiTicket jsapiTicket = this.CreateJsapiTicket();
 
             string string1 = string.Format("jsapi_ticket={0}&noncestr={1}&timestamp={2}&url={3}", jsapiTicket.ticket, this.nonceStr, this.timestamp, url);
 

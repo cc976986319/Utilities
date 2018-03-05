@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC9E3B7C-ECA0-4E74-904C-88A0043161DD}</ProjectGuid>
+    <ProjectGuid>{9055224E-A1EC-4B8C-85EF-7034AA2A05E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Utilities.Extension</RootNamespace>
-    <AssemblyName>Utilities.Extension</AssemblyName>
+    <RootNamespace>Utilities.ProxyTools</RootNamespace>
+    <AssemblyName>Utilities.ProxyTools</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,13 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\DataRowToEntity.cs" />
-    <Compile Include="IMapping.cs" />
-    <Compile Include="Mapping\DataTableToEntity.cs" />
-    <Compile Include="Mapping\EntityToEntity.cs" />
-    <Compile Include="Microsoft\StringExtension.cs" />
-    <Compile Include="Microsoft\XmlExtension.cs" />
+    <Compile Include="Factorys\Proxy_66IP.cs" />
+    <Compile Include="HtmlDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy.cs" />
+    <Compile Include="ProxyFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
